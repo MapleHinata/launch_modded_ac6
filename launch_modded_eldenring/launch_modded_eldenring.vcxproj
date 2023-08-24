@@ -24,6 +24,7 @@
     <ProjectGuid>{5de6aca4-b396-4beb-bf17-04e32ef2ddc7}</ProjectGuid>
     <RootNamespace>launchmoddedeldenring</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>launch_modded_ac6</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

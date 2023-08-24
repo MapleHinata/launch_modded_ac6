@@ -27,7 +27,7 @@ void LaunchModdedEldenRing::Run() {
     */
 
     // Can also ust close as the launcher isn't needed anymore
-    printf_s("Elden Ring is running...\n");
+    printf_s("Armored Core 6 is running...\n");
     WaitForSingleObject(elden_ring_handle, INFINITE);
     CloseHandle(elden_ring_thread);
     CloseHandle(elden_ring_handle);
@@ -38,22 +38,22 @@ void LaunchModdedEldenRing::Run() {
 bool LaunchModdedEldenRing::LaunchGame() {
 
     OFSTRUCT file_struct = {};
-    HFILE elden_ring_exe_handle = OpenFile("eldenring.exe", &file_struct, OF_EXIST);
+    HFILE elden_ring_exe_handle = OpenFile("armoredcore6.exe", &file_struct, OF_EXIST);
     if (elden_ring_exe_handle == HFILE_ERROR) {
-        printf_s("Failed to find \"eldenring.exe\"\n");
+        printf_s("Failed to find \"armoredcore6.exe\"\n");
         return false;
     };
 
-    if (!SetEnvironmentVariableA("SteamAppId", "1245620")) {
+    if (!SetEnvironmentVariableA("SteamAppId", "1888160")) {
         printf_s("Failed to create appropriate launch environment\n");
         return false;
     };
 
     STARTUPINFOA startup_info = {};
     PROCESS_INFORMATION process_info = {};
-    if (!CreateProcessA("eldenring.exe", nullptr, nullptr, nullptr,
+    if (!CreateProcessA("armoredcore6.exe", nullptr, nullptr, nullptr,
         false, 0, nullptr, nullptr, &startup_info, &process_info)) {
-        printf_s("Failed to launch \"eldenring.exe\"\n");
+        printf_s("Failed to launch \"armoredcore6.exe\"\n");
         return false;
     };
 
@@ -74,7 +74,7 @@ bool LaunchModdedEldenRing::InjectMod(const char* mod_name) {
 
     HANDLE elden_ring_handle_open = OpenProcess(PROCESS_ALL_ACCESS, false, GetProcessId(elden_ring_handle));
     if (elden_ring_handle_open == INVALID_HANDLE_VALUE) {
-        printf_s("Failed to open process: \"eldenring.exe\"\n");
+        printf_s("Failed to open process: \"armoredcore6.exe\"\n");
         return false;
     };
 
